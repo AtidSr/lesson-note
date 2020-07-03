@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{ title }}</p>
+      <button @click="title = 'changed' ">Updated Title</button>
+      <button @click="destroy">Destroy</button>
+
+      <!-- <input type="text" v-on:input="changeTitle" /> 
+      <p>{{ sayHello() }} - <a v-bind:href="link"></a></p> 
+      <button v-on:click="increase">Click me</button>
+      <p>{{counter}}</p>
+      <p v-on:mousemove="updateCoordinates">Coordinate : {{ x }} / {{ y }}</p>
+    <p v-html="facbookLink"></p>  -->
+    </div>
+
+    <script>
+      new Vue({
+        el: "#app",
+        data: { title: "Vue js life cycle" },
+        beforeCreate: function () {
+          console.log("beforeCreated()");
+        },
+        created: function () {
+          console.log("created()");
+        },
+        beforeMount: function () {
+          console.log("beforeMount()");
+        },
+        updated: function () {
+          console.log("updated()");
+        },
+        beforeDestroy: function () {
+          console.log("Destroy()");
+        },
+        methods: {
+          destroy: function () {
+            console.log("destroyed");
+          },
+        },
+      });
+      // new Vue({
+      //   el: "#app",
+      //   data: {
+      //     title: "Hello world",
+      //     link: "www.google.com",
+      //     facebookLink: '<a href="www.facebook.com">facbook</a>',
+      //     counter: 0,
+      //     x: 0,
+      //     y: 0
+      //   },
+      //   methods: {
+      //     sayHello: function() {
+      //       return this.title;
+      //     },
+      //     changeTitle: function(event) {
+      //       this.title = event.target.value;
+      //     },
+      //     increase: function() {
+      //       this.counter++;
+      //       i;
+      //     },
+      //     updateCoordinates: function(event) {
+      //       this.x = event.clientX;
+      //       this.y = event.clientY;
+      //     }
+      //   }
+      // });
+    </script>
+  </body>
+</html>
+
+<!-- 
+  note
+once date change: rerender: page
+v-once : render only one time
+ex <h1 v-once></h1>
+
+v-html: allow to return data as html element, it return string if not use this tag
+
+-->
